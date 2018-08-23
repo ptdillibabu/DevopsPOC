@@ -1,15 +1,48 @@
-﻿@model SampleApplicationForPOC.Models.AdditionViewModel
+﻿@model SampleApplicationForPOC.Models.AdditionalViewModel
+
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
-@using(Html.BeginForm())
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm()) 
 {
-	< fieldset > 
-	< legend style = "color:blue" > Operation Of Two Numbers < /legend>
-    @Html.EditorFor(x => x.A)
-	@Html.EditorFor(x => x.B) < br / > < br / >
-	< input type = "submit" value = "mul" name = "command" / >  
-	< h2 style = "color:red" > @Html.Label("Result is :")
-	@Html.DisplayFor(x => x.Result) < /h2> 
-	< /fieldset> 
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Addition-Multiplication Operation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="control-label col-md-2"><label><b>Result:</b></label> @ViewBag.Message </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

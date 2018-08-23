@@ -5,21 +5,16 @@ namespace SampleApplicationForPOC.Models
 {
     public class AdditionalViewModel
     {
-        public double A
+        public double Value1
         {
             get;
             set;
         }
-        public double B
+        public double Value2
         {
             get;
             set;
-        }
-        public double Result
-        {
-            get;
-            set;
-        }
+        }       
     }
 }
 
