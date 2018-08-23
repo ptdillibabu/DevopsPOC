@@ -21,13 +21,14 @@ namespace SampleApplicationForPOC.Controllers
             string isAdditional = System.Configuration.ConfigurationManager.AppSettings["Additional"];
             if (isAdditional.ToUpper() == "TRUE")
             {
-                model.Result = model.A + model.B;
+                ViewBag.Message = model.Value1 + model.Value2;
             }
             
             if (isMuliplication.ToUpper() == "TRUE")
             {
-                model.Result = model.A * model.B;
+                ViewBag.Message = model.Value1 * model.Value2;
             }
+            
             return View(model);
         } 
 

@@ -201,14 +201,18 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -235,6 +239,30 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Views\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Views\Web.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Views\Web.Prod.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Views\Web.Qa.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Views\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Prod.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Qa.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -251,13 +279,13 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Int|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Stage|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Qa|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prod|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
